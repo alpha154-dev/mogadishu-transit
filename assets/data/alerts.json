@@ -1,0 +1,20 @@
+[
+  {
+    "id": "A001",
+    "title": "Heavy Traffic",
+    "location": "KM4",
+    "routes": [
+      "R1",
+      "R2"
+    ],
+    "status": "Active"
+  },
+
+  {
+    "id": "A002",
+    "title": "Road Maintenance",
+    "location": "Baar Ubax",
+    "routes": ["R1", "R3"],
+    "status": "Active"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "J001",
+    "stopId": "S002",
+    "name": "KM4",
+    "type": "Main Transfer Hub",
+    "connectedRoutes": [
+      "R1",
+      "R2"
+    ]
+  },
+
+  {
+    "id": "J002",
+    "stopId": "S004",
+    "name": "Baar Ubax",
+    "type": "Transfer Junction",
+    "connectedRoutes": [
+      "R1",
+      "R3"
+    ]
+  },
+
+  {
+    "id": "J003",
+    "stopId": "S008",
+    "name": "Suuqa Xoolaha",
+    "type": "Transfer Junction",
+    "connectedRoutes": [
+      "R1",
+      "R3"
+    ]
+  }
+]
