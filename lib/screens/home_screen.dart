@@ -61,8 +61,16 @@ class _HomeScreenState extends State<HomeScreen> {
         selectedIndex: _currentIndex,
         onDestinationSelected: _onTabSelected,
         destinations: const [
-          NavigationDestination(icon: Icon(Icons.directions_bus), label: 'Trip'),
-          NavigationDestination(icon: Icon(Icons.bookmark), label: 'Saved'),
+          NavigationDestination(
+            icon: Icon(Icons.directions_bus_outlined),
+            selectedIcon: Icon(Icons.directions_bus),
+            label: 'Trip',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.bookmark_outline),
+            selectedIcon: Icon(Icons.bookmark),
+            label: 'Saved',
+          ),
         ],
       ),
     );

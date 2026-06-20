@@ -178,7 +178,7 @@ class _TripPlannerScreenState extends State<TripPlannerScreen> {
           focusNode: focusNode,
           decoration: InputDecoration(
             labelText: label,
-            prefixIcon: const Icon(Icons.search),
+            prefixIcon: Icon(label == 'From' ? Icons.trip_origin : Icons.place),
             border: const OutlineInputBorder(),
           ),
         );
@@ -235,9 +235,7 @@ class _TripPlannerScreenState extends State<TripPlannerScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mogadishu Transit', style: TextStyle(color: Colors.white)),
-        backgroundColor: Colors.green,
-        centerTitle: true,
+        title: const Text('Mogadishu Transit'),
       ),
       body: Stack(
         children: [
@@ -334,14 +332,34 @@ class _TripPlannerScreenState extends State<TripPlannerScreen> {
                           ],
                         ),
                         const SizedBox(height: 16),
-                        ElevatedButton(
+                        ElevatedButton.icon(
                           onPressed: _findTrip,
-                          child: const Text('Find Trip'),
+                          icon: const Icon(Icons.search),
+                          label: const Text('Find Trip'),
                         ),
                         if (_statusMessage.isNotEmpty)
                           Padding(
-                            padding: const EdgeInsets.only(top: 12),
-                            child: Text(_statusMessage, style: const TextStyle(color: Colors.red)),
+                            padding: const EdgeInsets.only(top: 10),
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                              decoration: BoxDecoration(
+                                color: Colors.red.shade50,
+                                borderRadius: BorderRadius.circular(8),
+                                border: Border.all(color: Colors.red.shade200),
+                              ),
+                              child: Row(
+                                children: [
+                                  Icon(Icons.error_outline, color: Colors.red.shade700, size: 16),
+                                  const SizedBox(width: 8),
+                                  Expanded(
+                                    child: Text(
+                                      _statusMessage,
+                                      style: TextStyle(color: Colors.red.shade700, fontSize: 13),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                       ],
                     ),
@@ -427,11 +445,21 @@ class _TripPlannerScreenState extends State<TripPlannerScreen> {
   Widget _buildResult(TripResult result) {
     return ListView(
       children: [
-        Text(
-          result.isDirect ? 'Direct route' : '${result.steps.length - 1} transfer(s)',
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+        Row(
+          children: [
+            Icon(
+              result.isDirect ? Icons.directions_bus : Icons.transfer_within_a_station,
+              color: Theme.of(context).colorScheme.primary,
+              size: 20,
+            ),
+            const SizedBox(width: 8),
+            Text(
+              result.isDirect ? 'Direct route' : '${result.steps.length - 1} transfer(s)',
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            ),
+          ],
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 10),
         for (final step in result.steps) ...[
           Card(
             child: Padding(
@@ -439,15 +467,57 @@ class _TripPlannerScreenState extends State<TripPlannerScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(step.routeName, style: const TextStyle(fontWeight: FontWeight.bold)),
-                  Text('Fare: \$${step.fare.toStringAsFixed(2)}'),
-                  Text('Stops: ${step.stopIds.map(_stopName).join(' → ')}'),
+                  Row(
+                    children: [
+                      Icon(Icons.directions_bus, size: 16, color: Theme.of(context).colorScheme.primary),
+                      const SizedBox(width: 6),
+                      Expanded(
+                        child: Text(step.routeName, style: const TextStyle(fontWeight: FontWeight.bold)),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primaryContainer,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Text(
+                          '\$${step.fare.toStringAsFixed(2)}',
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    step.stopIds.map(_stopName).join(' → '),
+                    style: TextStyle(fontSize: 13, color: Colors.grey.shade600),
+                  ),
                   for (final alert in _alertsForStep(step))
                     Padding(
                       padding: const EdgeInsets.only(top: 6),
-                      child: Text(
-                        '⚠ ${alert.title} — ${alert.location}',
-                        style: const TextStyle(color: Colors.orange, fontSize: 13),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                        decoration: BoxDecoration(
+                          color: Colors.orange.shade50,
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: Colors.orange.shade200),
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(Icons.warning_amber_rounded, color: Colors.orange.shade700, size: 14),
+                            const SizedBox(width: 6),
+                            Expanded(
+                              child: Text(
+                                '${alert.title} — ${alert.location}',
+                                style: TextStyle(color: Colors.orange.shade800, fontSize: 12),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                 ],
@@ -456,12 +526,20 @@ class _TripPlannerScreenState extends State<TripPlannerScreen> {
           ),
           const SizedBox(height: 8),
         ],
-        Text(
-          'Total fare: \$${result.totalFare.toStringAsFixed(2)}',
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+        const Divider(height: 8),
+        const SizedBox(height: 8),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text('Total fare', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
+            Text(
+              '\$${result.totalFare.toStringAsFixed(2)}',
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            ),
+          ],
         ),
         const SizedBox(height: 12),
-        OutlinedButton.icon(
+        ElevatedButton.icon(
           onPressed: _saveCurrentRoute,
           icon: const Icon(Icons.bookmark_add_outlined),
           label: const Text('Save this route'),

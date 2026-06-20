@@ -20,8 +20,11 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
         ),
         appBarTheme: const AppBarTheme(
-          centerTitle: false,
+          centerTitle: true,
           elevation: 0,
+          backgroundColor: Colors.green,
+          foregroundColor: Colors.white,
+          iconTheme: IconThemeData(color: Colors.white),
         ),
         cardTheme: CardThemeData(
           elevation: 1,

@@ -79,7 +79,19 @@ class TransitMap extends StatelessWidget {
                       ),
                     );
                   },
-                  child: const Icon(Icons.location_pin, color: Colors.black87, size: 30),
+                  child: Container(
+                    width: 30,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.green.shade700,
+                      border: Border.all(color: Colors.white, width: 2),
+                      boxShadow: const [
+                        BoxShadow(color: Colors.black26, blurRadius: 4, offset: Offset(0, 2)),
+                      ],
+                    ),
+                    child: const Icon(Icons.directions_bus, color: Colors.white, size: 14),
+                  ),
                 ),
               );
             }),
