@@ -1,0 +1,151 @@
+[
+  {
+    "id":"S001",
+    "name":"Aden Adde Airport",
+    "latitude":2.0128,
+    "longitude":45.3047
+  },
+
+  {
+    "id":"S002",
+    "name":"KM4",
+    "latitude":2.031594,
+    "longitude":45.310672
+  },
+
+  {
+    "id":"S003",
+    "name":"Tarabuunka",
+    "latitude":2.041727,
+    "longitude":45.309895
+  },
+
+  {
+    "id":"S004",
+    "name":"Baar Ubax",
+    "latitude":2.055960,
+    "longitude":45.322866
+  },
+
+  {
+    "id":"S005",
+    "name":"Warshada taraqa iyo sagaarka",
+    "latitude":2.049264,
+    "longitude":45.309244
+  },
+
+  {
+    "id":"S006",
+    "name":"SIMAD University",
+    "latitude":2.066886,
+    "longitude":45.326269
+  },
+
+
+  {
+    "id":"S007",
+    "name":"Ex Control Afgooye",
+    "latitude":2.044927,
+    "longitude":45.282737
+  },
+
+
+  {
+    "id":"S008",
+    "name":"Suuqa Xoolaha",
+    "latitude":2.0970378780626753,
+    "longitude":45.368586557371046
+  },
+
+
+  {
+    "id":"S009",
+    "name":"Somali National University",
+    "latitude":2.042040,
+    "longitude":45.286760
+  },
+
+    {
+      "id": "S010",
+      "name": "Seybiano",
+      "latitude": 2.037497,
+      "longitude": 45.295815
+    },
+    {
+      "id": "S011",
+      "name": "Digfeer Road",
+      "latitude": 2.034695,
+      "longitude": 45.300892
+    },
+    {
+      "id": "S012",
+      "name": "Zoobe",
+      "latitude": 2.032575,
+      "longitude": 45.304602
+    },
+
+    {
+      "id": "S014",
+      "name": "Isgoyska Dabka",
+      "latitude": 2.034800,
+      "longitude": 45.323617
+    },
+    {
+      "id": "S015",
+      "name": "Isgoyska Bakaaraha",
+      "latitude": 2.045641,
+      "longitude": 45.319759
+    },
+    {
+      "id": "S016",
+      "name": "Howlwadag",
+      "latitude": 2.047711,
+      "longitude": 45.325633
+    },
+    {
+      "id": "S017",
+      "name": "Siinaay",
+      "latitude": 2.051437,
+      "longitude": 45.339639
+    },
+    {
+      "id": "S018",
+      "name": "Darjiinka",
+      "latitude": 2.052061,
+      "longitude": 45.343831
+    },
+    {
+      "id": "S019",
+      "name": "Sanca",
+      "latitude": 2.053430,
+      "longitude": 45.352507
+    },
+    {
+      "id": "S020",
+      "name": "Karaan",
+      "latitude": 2.052392,
+      "longitude": 45.367304
+    },
+    {
+      "id": "S021",
+      "name": "Towfiiq",
+      "latitude": 2.062527,
+      "longitude": 45.341810
+    },
+    {
+      "id": "S022",
+      "name": "Fagax",
+      "latitude": 2.064736,
+      "longitude": 45.353944
+    },
+    {
+      "id": "S023",
+      "name": "Warshadda Caanaha",
+      "latitude":2.064044,
+      "longitude": 45.320148
+    }
+  ]
+
+
+
+

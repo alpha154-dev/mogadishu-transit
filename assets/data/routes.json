@@ -1,0 +1,60 @@
+[
+  {
+    "id": "R1",
+    "name": "Airport - Suuqa Xoolaha Line",
+    "from": "S001",
+    "to": "S008",
+    "fare": 1.0,
+    "estimatedTime": "25 minutes",
+    "stops": [
+      "S001",
+      "S002",
+      "S003",
+      "S005",
+      "S004",
+      "S023",
+      "S006",
+      "S008"
+    ]
+  },
+
+  {
+    "id": "R2",
+    "name": "Ex Control - Karaan Line",
+    "from": "S009",
+    "to": "S020",
+    "fare": 1.5,
+    "estimatedTime": "40 minutes",
+    "stops": [
+      "S007",
+      "S009",
+      "S010",
+      "S011",
+      "S012",
+      "S002",
+      "S014",
+      "S015",
+      "S016",
+      "S017",
+      "S018",
+      "S019",
+      "S020"
+
+    ]
+  },
+
+  {
+    "id": "R3",
+    "name": "Baar Ubax - Suuqa Xoolaha Line",
+    "from": "S004",
+    "to": "S008",
+    "fare": 0.75,
+    "estimatedTime": "15 minutes",
+    "stops": [
+      "S004",
+      "S021",
+      "S022",
+      "S008"
+    ]
+  }
+]
