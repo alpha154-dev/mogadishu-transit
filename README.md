@@ -1,17 +1,39 @@
-# mogadishu_transit
+# Mogadishu Transit
 
-A new Flutter project.
+A Flutter app for navigating public transit in Mogadishu — browse bus stops, plan trips, and save your favourite routes.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- **Transit map** — interactive map showing all stops and route lines
+- **Trip planner** — enter origin and destination to find the best route, including transfers
+- **Saved routes** — bookmark routes you use often for quick access
+- **Service alerts** — real-time notices about delays or route changes
 
-A few resources to get you started if this is your first Flutter project:
+## Getting started
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+**Prerequisites**: Flutter 3.x with Dart SDK ^3.12.1
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+flutter pub get
+flutter run
+```
+
+## Project structure
+
+```
+lib/
+  models/        # Stop, Route, Transfer, Alert data classes
+  services/      # DataService, RoutingService, LocationService, SavedRoutesService
+  screens/       # HomeScreen, TripPlannerScreen, StopDetailsScreen, SavedRoutesScreen
+  widgets/       # TransitMap widget
+assets/data/     # stops.json, routes.json, transfers.json, alerts.json
+```
+
+## Dependencies
+
+| Package | Purpose |
+|---|---|
+| `flutter_map` | Tile-based interactive map |
+| `geolocator` | Device GPS for current location |
+| `latlong2` | Lat/lng coordinate types |
+| `shared_preferences` | Persisting saved routes locally |
